@@ -1,20 +1,6 @@
 import { $, $$, For } from "voby"
 import QuestionCard from "./QuestionCard"
-import { Question } from "./question"
-
-const questions: Question[] = [
-  {
-    id: "unique_field_names",
-    title: "Are all field names unique?",
-    description: "All field names in your table should have unique names.",
-    outcomes: {
-      yes: { questionId: "TODO" },
-      no: {
-        normalisationLevel: 0,
-      },
-    },
-  },
-]
+import { Question, questions } from "./questions"
 
 function App(): JSX.Element {
   const currentQuestions = $([questions[0]])

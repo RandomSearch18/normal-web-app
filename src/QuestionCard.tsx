@@ -1,5 +1,5 @@
 import { FunctionMaybe } from "voby"
-import { Question } from "./question"
+import { Question } from "./questions"
 
 function QuestionCard({
   index,
