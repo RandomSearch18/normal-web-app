@@ -1,4 +1,4 @@
-import { FunctionMaybe } from "voby"
+import { $, FunctionMaybe, Observable } from "voby"
 import { Outcome, Question } from "./questions"
 import { appendQuestion, currentResult, showResult } from "./App"
 
@@ -17,6 +17,8 @@ function QuestionCard({
   index: FunctionMaybe<number>
   question: Question
 }) {
+  const selectedOption = $<"yes" | "no">(undefined)
+
   return (
     <div class="card w-xl bg-base-200 shadow-lg" id={question.id}>
       <div class="card-body">
@@ -27,16 +29,38 @@ function QuestionCard({
         <p class="md:text-lg">{question.description}</p>
         <div class="mt-6 flex gap-5">
           <button
-            class="btn btn-error shrink w-full text-lg"
+            class={[
+              "btn",
+              "btn-error",
+              "shrink",
+              "w-full",
+              "text-lg",
+              () => selectedOption() === "no" && "btn-always-colored",
+            ]}
             title="Answer 'No' to this question"
-            onClick={() => handleQuestionOutcome(question.outcomes.no)}
+            disabled={() => !!selectedOption()}
+            onClick={() => {
+              selectedOption("no")
+              handleQuestionOutcome(question.outcomes.no)
+            }}
           >
             No
           </button>
           <button
-            class="btn btn-success shrink w-full text-lg"
+            class={[
+              "btn",
+              "btn-success",
+              "shrink",
+              "w-full",
+              "text-lg",
+              () => selectedOption() === "yes" && "btn-always-colored",
+            ]}
             title="Answer 'Yes' to this question"
-            onClick={() => handleQuestionOutcome(question.outcomes.yes)}
+            disabled={() => !!selectedOption()}
+            onClick={() => {
+              selectedOption("yes")
+              handleQuestionOutcome(question.outcomes.yes)
+            }}
           >
             Yes
           </button>

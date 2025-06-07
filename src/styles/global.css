@@ -41,3 +41,12 @@
       monospace;
   }
 }
+
+@layer utilities {
+  .btn.btn-always-colored {
+    &:is(:disabled, [disabled], .btn-disabled) {
+      background-color: color-mix(in oklab, var(--btn-bg) 30%, transparent);
+      /* color: var(--btn-fg); */
+    }
+  }
+}
