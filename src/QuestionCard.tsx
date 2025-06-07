@@ -1,5 +1,12 @@
 import { FunctionMaybe } from "voby"
-import { Question } from "./questions"
+import { Outcome, Question } from "./questions"
+import { appendQuestion } from "./App"
+
+function handleQuestionOutcome(outcome: Outcome) {
+  if ("questionId" in outcome) {
+    appendQuestion(outcome.questionId)
+  }
+}
 
 function QuestionCard({
   index,
@@ -9,7 +16,7 @@ function QuestionCard({
   question: Question
 }) {
   return (
-    <div class="card w-xl bg-base-200 shadow-lg">
+    <div class="card w-xl bg-base-200 shadow-lg" id={question.id}>
       <div class="card-body">
         <span class="badge badge-info">
           {index}&#xFE0F;&#x20E3; Question {index}
@@ -20,12 +27,14 @@ function QuestionCard({
           <button
             class="btn btn-error shrink w-full text-lg"
             title="Answer 'No' to this question"
+            onClick={() => handleQuestionOutcome(question.outcomes.no)}
           >
             No
           </button>
           <button
             class="btn btn-success shrink w-full text-lg"
             title="Answer 'Yes' to this question"
+            onClick={() => handleQuestionOutcome(question.outcomes.yes)}
           >
             Yes
           </button>

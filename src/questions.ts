@@ -1,3 +1,5 @@
+import { currentQuestions } from "./App"
+
 export interface ResultOutcome {
   normalisationLevel: 0 | 1 | 2 | 3
   recommendedAction?: string
@@ -25,7 +27,7 @@ export const questions: Question[] = [
     title: "Are all field names unique?",
     description: "All field names in your table should have unique names.",
     outcomes: {
-      yes: { questionId: "TODO" },
+      yes: { questionId: "unique_field_names" },
       no: {
         normalisationLevel: 0,
       },

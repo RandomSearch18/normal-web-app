@@ -1,21 +1,36 @@
 import { $, $$, For } from "voby"
 import QuestionCard from "./QuestionCard"
-import { Question, questions } from "./questions"
+import { getQuestion, Question, questions } from "./questions"
+
+export const currentQuestions = $([questions[0]])
+
+export function appendQuestion(id: string) {
+  const question = getQuestion(id)
+  if (!question) {
+    throw new Error(`Question with id ${id} not found`)
+  }
+  currentQuestions([...currentQuestions(), question])
+  document.getElementById(question.id)?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  })
+  // location.hash = question.id
+}
 
 function App(): JSX.Element {
-  const currentQuestions = $([questions[0]])
-
   return (
     <>
       <h1 class="flex-center text-center text-6xl md:text-7xl lg:text-8xl py-8 pb-20">
         Database normalisation
       </h1>
       <main class="flex-center">
-        <For values={currentQuestions}>
-          {(question, index) => (
-            <QuestionCard index={() => $$(index) + 1} question={question} />
-          )}
-        </For>
+        <div class="flex flex-col gap-8">
+          <For values={currentQuestions}>
+            {(question, index) => (
+              <QuestionCard index={() => $$(index) + 1} question={question} />
+            )}
+          </For>
+        </div>
       </main>
     </>
   )
