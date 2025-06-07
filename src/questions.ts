@@ -78,7 +78,7 @@ export const questions: Question[] = [
     title: "Does each table serve a single purpose?",
     description: "",
     outcomes: {
-      yes: { questionId: "no_partial_dependencies" },
+      yes: { questionId: "partial_dependencies" },
       no: {
         normalisationLevel: 1,
         recommendedAction:
@@ -104,7 +104,7 @@ export const questions: Question[] = [
     id: "no_transitive_dependencies",
     title: "Does the table contain any transitive dependencies?",
     description:
-      "A transitive dependency is when a field depends on a non-primary key field. In other words, all keys should depend only on the primary key.",
+      "A transitive dependency is when a field depends on a non-primary key field. To avoid it, all keys should depend only on the primary key.",
     outcomes: {
       no: {
         normalisationLevel: 3,

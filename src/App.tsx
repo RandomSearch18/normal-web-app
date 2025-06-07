@@ -10,10 +10,12 @@ export function appendQuestion(id: string) {
     throw new Error(`Question with id ${id} not found`)
   }
   currentQuestions([...currentQuestions(), question])
-  document.getElementById(question.id)?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  })
+  setTimeout(() => {
+    document.getElementById(question.id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
+  }, 100)
   // location.hash = question.id
 }
 
