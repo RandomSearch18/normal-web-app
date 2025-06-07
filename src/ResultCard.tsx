@@ -25,11 +25,10 @@ function ResultCard({
         <h2 class="text-3xl md:text-4xl font-bold">{title}</h2>
         {/* <p class="md:text-lg">{paragraphText}</p> */}
         <If when={recommendedAction}>
-          <p class="md:text-lg">
-            To improve your database:
-            <br />
-            {recommendedAction}
-          </p>
+          <p class="md:text-lg">Tip to improve your database:</p>
+          <div class="alert md:text-lg">
+            <span>{recommendedAction}</span>
+          </div>
         </If>
         <div class="mt-6">
           <button
