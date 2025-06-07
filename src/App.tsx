@@ -1,6 +1,7 @@
 import { $, $$, For } from "voby"
 import QuestionCard from "./QuestionCard"
 import { getQuestion, Question, questions } from "./questions"
+import ResultCard from "./ResultCard"
 
 export const currentQuestions = $([questions[0]])
 
@@ -32,6 +33,7 @@ function App(): JSX.Element {
               <QuestionCard index={() => $$(index) + 1} question={question} />
             )}
           </For>
+          <ResultCard normalisationLevel={0} />
         </div>
       </main>
     </>

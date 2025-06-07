@@ -5,6 +5,8 @@ import { appendQuestion } from "./App"
 function handleQuestionOutcome(outcome: Outcome) {
   if ("questionId" in outcome) {
     appendQuestion(outcome.questionId)
+  } else if ("normalisationLevel" in outcome) {
+    // result card TODO
   }
 }
 
