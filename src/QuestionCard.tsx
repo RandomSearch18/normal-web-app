@@ -20,14 +20,14 @@ function QuestionCard({
   const selectedOption = $<"yes" | "no">(undefined)
 
   return (
-    <div class="card w-xl bg-base-200 shadow-lg" id={question.id}>
+    <div class="card max-w-xl bg-base-200 shadow-lg" id={question.id}>
       <div class="card-body">
         <span class="badge badge-info">
           {index}&#xFE0F;&#x20E3; Question {index}
         </span>
         <h2 class="text-3xl md:text-4xl font-bold">{question.title}</h2>
         <p class="md:text-lg">{question.description}</p>
-        <div class="mt-6 flex gap-5">
+        <div class="mt-6 flex gap-1 sm:gap-5">
           <button
             class={[
               "btn",

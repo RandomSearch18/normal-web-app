@@ -28,7 +28,7 @@ function ResultCard({
 
   return (
     <div
-      class="card w-xl bg-neutral text-neutral-content shadow-lg"
+      class="card max-w-xl bg-neutral text-neutral-content shadow-lg"
       id="result"
     >
       <div class="card-body">

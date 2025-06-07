@@ -34,7 +34,7 @@ export function showResult(result: ResultOutcome) {
 function App(): JSX.Element {
   return (
     <>
-      <h1 class="flex-center text-center text-6xl md:text-7xl lg:text-8xl py-8 pb-20">
+      <h1 class="flex-center text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl py-8 pb-20">
         Database normalisation
       </h1>
       <main class="flex-center pb-16">
