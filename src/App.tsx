@@ -9,7 +9,9 @@ const questions: Question[] = [
     description: "All field names in your table should have unique names.",
     outcomes: {
       yes: { questionId: "TODO" },
-      no: { questionId: "TODO" },
+      no: {
+        normalisationLevel: 0,
+      },
     },
   },
 ]
