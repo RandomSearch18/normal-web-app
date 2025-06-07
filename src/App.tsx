@@ -37,7 +37,7 @@ function App(): JSX.Element {
       <h1 class="flex-center text-center text-6xl md:text-7xl lg:text-8xl py-8 pb-20">
         Database normalisation
       </h1>
-      <main class="flex-center">
+      <main class="flex-center pb-16">
         <div class="flex flex-col gap-8">
           <For values={currentQuestions}>
             {(question, index) => (
