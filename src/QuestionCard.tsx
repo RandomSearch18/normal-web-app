@@ -1,12 +1,12 @@
 import { FunctionMaybe } from "voby"
 import { Outcome, Question } from "./questions"
-import { appendQuestion } from "./App"
+import { appendQuestion, currentResult, showResult } from "./App"
 
 function handleQuestionOutcome(outcome: Outcome) {
   if ("questionId" in outcome) {
     appendQuestion(outcome.questionId)
   } else if ("normalisationLevel" in outcome) {
-    // result card TODO
+    showResult(outcome)
   }
 }
 

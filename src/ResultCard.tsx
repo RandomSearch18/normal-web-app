@@ -9,10 +9,11 @@ function ResultCard({
 }) {
   const title =
     normalisationLevel === 0
-      ? "Your database is not in normal form"
+      ? "Your database is not in normal form 🙁"
       : `Your database is in ${normalisationLevel}NF`
 
   const paragraphText = ""
+  const badgeStyle = normalisationLevel === 0 ? "badge-error" : "badge-success"
 
   return (
     <div
@@ -20,12 +21,12 @@ function ResultCard({
       id="result"
     >
       <div class="card-body">
-        <span class="badge badge-success">Result</span>
+        <span class={`badge ${badgeStyle}`}>Result</span>
         <h2 class="text-3xl md:text-4xl font-bold">{title}</h2>
         {/* <p class="md:text-lg">{paragraphText}</p> */}
         <If when={recommendedAction}>
           <p class="md:text-lg">
-            Recommended action to improve your database:
+            To improve your database:
             <br />
             {recommendedAction}
           </p>

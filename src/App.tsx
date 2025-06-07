@@ -1,9 +1,10 @@
-import { $, $$, For } from "voby"
+import { $, $$, For, If } from "voby"
 import QuestionCard from "./QuestionCard"
-import { getQuestion, Question, questions } from "./questions"
+import { getQuestion, Question, questions, ResultOutcome } from "./questions"
 import ResultCard from "./ResultCard"
 
 export const currentQuestions = $([questions[0]])
+export const currentResult = $<ResultOutcome | undefined>(undefined)
 
 export function appendQuestion(id: string) {
   const question = getQuestion(id)
@@ -20,6 +21,16 @@ export function appendQuestion(id: string) {
   // location.hash = question.id
 }
 
+export function showResult(result: ResultOutcome) {
+  currentResult(result)
+  setTimeout(() => {
+    document.getElementById("result")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
+  }, 100)
+}
+
 function App(): JSX.Element {
   return (
     <>
@@ -33,7 +44,14 @@ function App(): JSX.Element {
               <QuestionCard index={() => $$(index) + 1} question={question} />
             )}
           </For>
-          <ResultCard normalisationLevel={0} />
+          {() =>
+            currentResult() && (
+              <ResultCard
+                normalisationLevel={currentResult()!.normalisationLevel}
+                recommendedAction={currentResult()!.recommendedAction}
+              />
+            )
+          }
         </div>
       </main>
     </>
