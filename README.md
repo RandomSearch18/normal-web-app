@@ -23,9 +23,9 @@ A web app made for A-Level Computer Science revision. It asks you questions abou
 
 ## Development instructions
 
-We use Vite, Yarn Berry, Tailwind CSS, daisyUI, and Voby.
+We use TypeScript, Vite, Yarn Berry, Tailwind CSS, daisyUI, and Voby.
 
-Clone the repository, install dependencies by running `yarn`, and then run `yarn dev` to start the development server.
+To get started with development, clone the repository, install dependencies by running `yarn`, and then run `yarn dev` to start the development server.
 
 ## Deployment instructions
 
