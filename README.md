@@ -1,4 +1,4 @@
-# Normal web app
+# 🍱 Normal web app
 
 - A-Level Computer Science revision
 - You like databases?
