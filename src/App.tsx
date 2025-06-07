@@ -2,8 +2,9 @@ import { $, $$, For, If } from "voby"
 import QuestionCard from "./QuestionCard"
 import { getQuestion, Question, questions, ResultOutcome } from "./questions"
 import ResultCard from "./ResultCard"
+import IntroCard from "./IntroCard"
 
-export const currentQuestions = $([questions[0]])
+export const currentQuestions = $([] as Question[])
 export const currentResult = $<ResultOutcome | undefined>(undefined)
 
 export function appendQuestion(id: string) {
@@ -19,6 +20,11 @@ export function appendQuestion(id: string) {
     })
   }, 100)
   // location.hash = question.id
+}
+
+export function appendFirstQuestion() {
+  const targetId = questions[0].id
+  appendQuestion(targetId)
 }
 
 export function showResult(result: ResultOutcome) {
@@ -38,7 +44,8 @@ function App(): JSX.Element {
         Database normalisation
       </h1>
       <main class="flex-center pb-16">
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-8 mx-2">
+          <IntroCard />
           <For values={currentQuestions}>
             {(question, index) => (
               <QuestionCard index={() => $$(index) + 1} question={question} />
