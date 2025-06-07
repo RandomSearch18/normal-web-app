@@ -17,8 +17,18 @@ function QuestionCard({
         <h2 class="text-3xl font-bold">{question.title}</h2>
         <p class="">{question.description}</p>
         <div class="mt-6 flex gap-5">
-          <button class="btn btn-error shrink w-full">No</button>
-          <button class="btn btn-success shrink w-full">Yes</button>
+          <button
+            class="btn btn-error shrink w-full"
+            title="Answer 'No' to this question"
+          >
+            No
+          </button>
+          <button
+            class="btn btn-success shrink w-full"
+            title="Answer 'Yes' to this question"
+          >
+            Yes
+          </button>
         </div>
       </div>
     </div>

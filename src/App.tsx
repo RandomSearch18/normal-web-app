@@ -17,7 +17,7 @@ const questions: Question[] = [
 ]
 
 function App(): JSX.Element {
-  const currentQuestions = $([])
+  const currentQuestions = $([questions[0]])
 
   return (
     <>
